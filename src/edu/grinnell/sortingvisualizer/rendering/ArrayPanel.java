@@ -26,6 +26,10 @@ public class ArrayPanel extends JPanel {
         this.setPreferredSize(new Dimension(width, height));
     }
 
+    /**
+     * This class sets the canvas and specifies the color
+     * @param Grphics g
+     */
     @Override
     public void paintComponent(Graphics g) {
     		g.setColor(Color.WHITE);
