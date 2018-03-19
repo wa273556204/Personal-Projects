@@ -217,7 +217,7 @@ public class SortsTest {
 
     @SuppressWarnings("unchecked")
     @Test
-    public void testCustomSort() {
+    public void testCombSort() {
         l1 = new ArrayList<Integer>();
         sortedList = new ArrayList<Integer>();
         convertArrayIntoArrayList(arr1, l1);
