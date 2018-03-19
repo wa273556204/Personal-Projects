@@ -29,7 +29,6 @@ public class ArrayPanel extends JPanel {
     /**
      * This class sets the canvas and specifies the color of each bar
      * @param Grphics g
-     *
      */
     @Override
     public void paintComponent(Graphics g) {
