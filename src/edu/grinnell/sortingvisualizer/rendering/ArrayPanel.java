@@ -34,10 +34,10 @@ public class ArrayPanel extends JPanel {
     		int barHeight = this.height / notes.getNotes().size();
     		for(int i = 0; i < notes.getNotes().size(); i++) {
     			if(notes.isHighlighted(i)) {
-    				g.setColor(Color.YELLOW);
+    				g.setColor(Color.BLUE);
     			} else {
-    				g.setColor(new Color(0, 
-    									 125 * notes.getNotes().get(i) / notes.getNotes().size(), 
+    				g.setColor(new Color(50, 
+    									200 * notes.getNotes().get(i) / notes.getNotes().size(), 
     									 notes.getNotes().get(i) / notes.getNotes().size()));
     			}
     			g.fillRect(i * barWidth, (notes.getNotes().size() - notes.getNotes().get(i) - 1) * barHeight, barWidth, (notes.getNotes().get(i) + 1) * barHeight);
