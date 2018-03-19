@@ -1,132 +1,255 @@
 package edu.grinnell.sortingvisualizer.sorts;
 
 import static org.junit.Assert.*;
-
+import java.util.ArrayList;
 import org.junit.Test;
 
 public class SortsTest {
-	    
-	    Sorts test = new Sorts();
 
-	    @Test
-	    public void testSelectionSort() {
-	        //1
-	        Integer [] arr1 = {1, 4, 2, 7, 6, 8, 9};
-	        Sorts.selectionSort(arr1);
-	        Integer [] expected1 = {1, 2, 4, 6, 7, 8, 9};
-	        Assert.assertArrayEquals(expected1, arr1);
-	        //2
-	        Integer [] arr2 = {0, 0, 1, 0, 0};
-	        Sorts.selectionSort(arr2);
-	        Integer [] expected2 = {0, 0, 0, 0,1};
-	        Assert.assertArrayEquals(expected2, arr2);
-	        //3
-	        Integer [] arr3 = {3};
-	        Sorts.selectionSort(arr3);
-	        Integer [] expected3 = {3};
-	        Assert.assertArrayEquals(expected3, arr3);
+    public int arr1[] = {};
+    public int sortedArr1[] = {};
 
-	    }
+    public int arr2[] = {-1, 13, 900, 27, 13, 500, 500};
+    public int sortedArr2[] = {-1, 13, 13, 27, 500, 500, 900};
 
-	    @Test
-	    public void testInsertionSort() {
-	        //1
-	        Integer [] arr1 = {1, 4, 2, 7, 6, 8, 9};
-	        Sorts.insertionSort(arr1);
-	        Integer [] expected1 = {1, 2, 4, 6, 7, 8, 9};
-	        Assert.assertArrayEquals(expected1, arr1);
-	        //2
-	        Integer [] arr2 = {0, 0, 1, 0, 0};
-	        Sorts.insertionSort(arr2);
-	        Integer [] expected2 = {0, 0, 0, 0,1};
-	        Assert.assertArrayEquals(expected2, arr2);
-	        //3
-	        Integer [] arr3 = {3};
-	        Sorts.insertionSort(arr3);
-	        Integer [] expected3 = {3};
-	        Assert.assertArrayEquals(expected3, arr3);
-	    }
+    public int arr3[] = {1,2,3,4,5};
+    public int sortedArr3[] = {1,2,3,4,5};
 
-	    @Test
-	    public void testCombSort() {
-	        //1
-	        Integer [] arr1 = {1, 4, 2, 7, 6, 8, 9};
-	        Sorts.combSort(arr1);
-	        Integer [] expected1 = {1, 2, 4, 6, 7, 8, 9};
-	        Assert.assertArrayEquals(expected1, arr1);
-	        //2
-	        Integer [] arr2 = {0, 0, 1, 0, 0};
-	        Sorts.combSort(arr2);
-	        Integer [] expected2 = {0, 0, 0, 0,1};
-	        Assert.assertArrayEquals(expected2, arr2);
-	        //3
-	        Integer [] arr3 = {3};
-	        Sorts.combSort(arr3);
-	        Integer [] expected3 = {3};
-	        Assert.assertArrayEquals(expected3, arr3);
-	    }
+    public ArrayList<Integer> l1;
+    public ArrayList<Integer> tempList;
+    public ArrayList<Integer> l2;
+    public ArrayList<Integer> sortedList;
 
-	    @Test
-	    public void testMergeSort() {
-	        //1
-	        Integer [] arr1 = {1, 4, 2, 7, 6, 8, 9};
-	        Sorts.mergeSort(arr1);
-	        Integer [] expected1 = {1, 2, 4, 6, 7, 8, 9};
-	        Assert.assertArrayEquals(expected1, arr1);
-	        //2
-	        Integer [] arr2 = {0, 0, 1, 0, 0};
-	        Sorts.mergeSort(arr2);
-	        Integer [] expected2 = {0, 0, 0, 0,1};
-	        Assert.assertArrayEquals(expected2, arr2);
-	        //3
-	        Integer [] arr3 = {3};
-	        Sorts.mergeSort(arr3);
-	        Integer [] expected3 = {3};
-	        Assert.assertArrayEquals(expected3, arr3);
-	        //4
-	        String [] arr4 = {"cs", "love", "u", "ha"};
-	        Sorts.mergeSort(arr4);
-	        String[] expected4 = {"cs", "ha", "love", "u"};
-	        Assert.assertArrayEquals(expected4, arr4);
-	    }
+    public static void convertArrayIntoArrayList(int[] arr, ArrayList<Integer> l){
+        for(int i = 0; i < arr.length; i++) {
+            l.add(arr[i]);
+        }
+    }
 
-	    @Test
-	    public void testBubbleSort() {
-	        //1
-	        Integer [] arr1 = {1, 4, 2, 7, 6, 8, 9};
-	        Sorts.bubbleSort(arr1);
-	        Integer [] expected1 = {1, 2, 4, 6, 7, 8, 9};
-	        Assert.assertArrayEquals(expected1, arr1);
-	        //2
-	        Integer [] arr2 = {0, 0, 1, 0, 0};
-	        Sorts.bubbleSort(arr2);
-	        Integer [] expected2 = {0, 0, 0, 0,1};
-	        Assert.assertArrayEquals(expected2, arr2);
-	        //3
-	        Integer [] arr3 = {3};
-	        Sorts.bubbleSort(arr3);
-	        Integer [] expected3 = {3};
-	        Assert.assertArrayEquals(expected3, arr3);
-	    }
+    	@SuppressWarnings("unchecked")
+        @Test
+    	public void testSelectionSort() {
+    		l1 = new ArrayList<Integer>();
+    		sortedList = new ArrayList<Integer>();
+    		convertArrayIntoArrayList(arr1, l1);
+    		convertArrayIntoArrayList(sortedArr1, sortedList);
+    		l2 = (ArrayList<Integer>) l1.clone();
+    		tempList = (ArrayList<Integer>) l1.clone();
+    	    Sorts.selectionSort(l1);
+    		Sorts.eventSort(l2, Sorts.selectionSort(tempList));
+    		assertEquals(l1, sortedList);
+    		assertEquals(l2, sortedList);
+    		
+    		
+    		l1 = new ArrayList<Integer>();
+    		sortedList = new ArrayList<Integer>();
+    		convertArrayIntoArrayList(arr2, l1);
+    		convertArrayIntoArrayList(sortedArr2, sortedList);
+            l2 = (ArrayList<Integer>) l1.clone();
+            tempList = (ArrayList<Integer>) l1.clone();
+            Sorts.selectionSort(l1);
+            Sorts.eventSort(l2, Sorts.selectionSort(tempList));
+            assertEquals(l1, sortedList);
+            assertEquals(l2, sortedList);
+    		
+    		l1 = new ArrayList<Integer>();
+    		sortedList = new ArrayList<Integer>();
+    		convertArrayIntoArrayList(arr3, l1);
+    		convertArrayIntoArrayList(sortedArr3, sortedList);
+            l2 = (ArrayList<Integer>) l1.clone();
+            tempList = (ArrayList<Integer>) l1.clone();
+            Sorts.selectionSort(l1);
+            Sorts.eventSort(l2, Sorts.selectionSort(tempList));
+            assertEquals(l1, sortedList);
+            assertEquals(l2, sortedList);
+    	}
 
-	    @Test
-	    public void testQuicksort() {
-	        //1
-	        Integer [] arr1 = {1, 4, 2, 7, 6, 8, 9};
-	        Sorts.quickSort(arr1);
-	        Integer [] expected1 = {1, 2, 4, 6, 7, 8, 9};
-	        Assert.assertArrayEquals(expected1, arr1);
-	        //2
-	        Integer [] arr2 = {0, 0, 1, 0, 0};
-	        Sorts.quickSort(arr2);
-	        Integer [] expected2 = {0, 0, 0, 0,1};
-	        Assert.assertArrayEquals(expected2, arr2);
-	        //3
-	        Integer [] arr3 = {3};
-	        Sorts.quickSort(arr3);
-	        Integer [] expected3 = {3};
-	        Assert.assertArrayEquals(expected3, arr3);
-	    }
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testInsertionSort() {
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr1, l1);
+        convertArrayIntoArrayList(sortedArr1, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.insertionSort(l1);
+        Sorts.eventSort(l2, Sorts.insertionSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
 
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr2, l1);
+        convertArrayIntoArrayList(sortedArr2, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.insertionSort(l1);
+        Sorts.eventSort(l2, Sorts.insertionSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
 
-	}
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr3, l1);
+        convertArrayIntoArrayList(sortedArr3, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.insertionSort(l1);
+        Sorts.eventSort(l2, Sorts.insertionSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testBubbleSort() {
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr1, l1);
+        convertArrayIntoArrayList(sortedArr1, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.bubbleSort(l1);
+        Sorts.eventSort(l2, Sorts.bubbleSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr2, l1);
+        convertArrayIntoArrayList(sortedArr2, sortedList);
+        Sorts.bubbleSort(l1);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.bubbleSort(l1);
+        Sorts.eventSort(l2, Sorts.bubbleSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr3, l1);
+        convertArrayIntoArrayList(sortedArr3, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.bubbleSort(l1);
+        Sorts.eventSort(l2, Sorts.bubbleSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+        
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testMergeSort() {
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr1, l1);
+        convertArrayIntoArrayList(sortedArr1, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.mergeSort(l1);
+        Sorts.eventSort(l2, Sorts.mergeSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr2, l1);
+        convertArrayIntoArrayList(sortedArr2, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.mergeSort(l1);
+        Sorts.eventSort(l2, Sorts.mergeSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr3, l1);
+        convertArrayIntoArrayList(sortedArr3, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.mergeSort(l1);
+        Sorts.eventSort(l2, Sorts.mergeSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testQuickSort() {
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr1, l1);
+        convertArrayIntoArrayList(sortedArr1, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.quickSort(l1);
+        Sorts.eventSort(l2, Sorts.quickSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr2, l1);
+        convertArrayIntoArrayList(sortedArr2, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.quickSort(l1);
+        Sorts.eventSort(l2, Sorts.quickSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr3, l1);
+        convertArrayIntoArrayList(sortedArr3, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.quickSort(l1);
+        Sorts.eventSort(l2, Sorts.quickSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testCustomSort() {
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr1, l1);
+        convertArrayIntoArrayList(sortedArr1, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.combSort(l1);
+        Sorts.eventSort(l2, Sorts.combSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr2, l1);
+        convertArrayIntoArrayList(sortedArr2, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.combSort(l1);
+        Sorts.eventSort(l2, Sorts.combSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+        l1 = new ArrayList<Integer>();
+        sortedList = new ArrayList<Integer>();
+        convertArrayIntoArrayList(arr3, l1);
+        convertArrayIntoArrayList(sortedArr3, sortedList);
+        l2 = (ArrayList<Integer>) l1.clone();
+        tempList = (ArrayList<Integer>) l1.clone();
+        Sorts.combSort(l1);
+        Sorts.eventSort(l2, Sorts.combSort(tempList));
+        assertEquals(l1, sortedList);
+        assertEquals(l2, sortedList);
+
+    }
+}
