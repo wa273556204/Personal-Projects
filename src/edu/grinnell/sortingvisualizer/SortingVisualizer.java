@@ -1,7 +1,8 @@
 package edu.grinnell.sortingvisualizer;
 
+import edu.grinnell.sortingvisualizer.audio.*;
+import edu.grinnell.sortingvisualizer.rendering.*;
 import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 
 public class SortingVisualizer {

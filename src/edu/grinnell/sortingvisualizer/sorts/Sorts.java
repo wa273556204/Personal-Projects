@@ -183,18 +183,4 @@ public class Sorts {
 		}
 }
 	
-	public static void main(String[] args) {
-		ArrayList<Integer> test1 = new ArrayList<Integer>();
-		test1.add(1);
-		test1.add(4);
-		test1.add(8);
-		test1.add(3);
-		test1.add(5);
-		test1.add(9);
-		combSort(test1);
-		for(int i = 0; i<test1.size(); i++) {
-			System.out.println(test1.get(i));
-		}
-
-	}
 }
