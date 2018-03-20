@@ -39,5 +39,6 @@ public class CopyEvent<T> implements SortEvent<T>{
     public boolean isEmphasized() {
         return true;
     }
+}
     
     

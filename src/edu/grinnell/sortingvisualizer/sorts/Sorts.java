@@ -128,7 +128,7 @@ public class Sorts {
 			sortEventList.add(copy);
 			lst.set(i, temp.get(j));
 			j++;
-}
+		}
 	}
 
 	/**
