@@ -9,12 +9,23 @@ import edu.grinnell.sortingvisualizer.events.SwapEvent;
 
 public class Sorts {
 
+	/**
+	 * This method swaps two elements in an array
+	 * @param a
+	 * @param b
+	 * @param lst
+	 */
 	public static <T extends Comparable<T>> void swap(int a, int b, ArrayList<T> lst){
 		T temp = lst.get(a);
 		lst.set(a, lst.get(b));
 		lst.set(b, temp); 
 	}
 	
+	/**
+	 * THis method performs selection sort on an array
+	 * @param lst
+	 * @return a SortEvent object
+	 */
 	public static <T extends Comparable <T>> ArrayList<SortEvent<T>> selectionSort(ArrayList<T> lst){
 		ArrayList<SortEvent<T>> sortEventList = new ArrayList<SortEvent<T>>();
 		for(int i = 0; i < lst.size(); i++) {
@@ -33,6 +44,11 @@ public class Sorts {
 		return sortEventList;
 	}
 
+	/**
+	 * THis method performs insertion sort on an array
+	 * @param lst
+	 * @return a SortEvent object
+	 */
 	public static <T extends Comparable <T>> ArrayList<SortEvent<T>> insertionSort(ArrayList<T> lst){
 		ArrayList<SortEvent<T>> sortEventList = new ArrayList<SortEvent<T>>();
 		for(int i = 0; i < lst.size(); i++){
@@ -51,8 +67,9 @@ public class Sorts {
 	}
 
 	/**
-	 * THis is a method that performs comb sort
+	 * This is a method that performs comb sort
 	 * @param arr, a non-empty array
+	 * @return a SortEvent object
 	 */
 	public static <T extends Comparable<T>> ArrayList<SortEvent<T>> combSort(ArrayList<T> lst) {
 		ArrayList<SortEvent<T>> sortEventList = new ArrayList<SortEvent<T>>();
@@ -70,7 +87,14 @@ public class Sorts {
 		return sortEventList;
 	}
 
-	
+	/**
+	 * This method performs the basic sorting activity of merge sort
+	 * @param lst
+	 * @param lo
+	 * @param mid
+	 * @param hi
+	 * @param sortEventList
+	 */
 	public static <T extends Comparable<T>> void merge(ArrayList<T> lst, int lo, int mid, int hi, ArrayList<SortEvent<T>> sortEventList) {
 		ArrayList<T> temp = new ArrayList<T>();
 		int ptrlo = lo;
@@ -107,6 +131,13 @@ public class Sorts {
 }
 	}
 
+	/**
+	 * This method recursively sorts the entire array using merge sort
+	 * @param lst
+	 * @param lo
+	 * @param hi
+	 * @param sortEventList
+	 */
 	public static <T extends Comparable<T>> void mergeSortHelper(ArrayList<T> lst, int lo, int hi, ArrayList<SortEvent<T>> sortEventList) {
 		if (hi - lo > 1) {
 			mergeSortHelper(lst, lo, (lo +hi)/2, sortEventList); 
@@ -114,14 +145,22 @@ public class Sorts {
 			merge(lst,lo,(lo+hi)/2,hi, sortEventList);
 		}
 	}
-
+/**
+ * This method performs merge sort on an array
+ * @param lst
+ * @return a SortEvent object
+ */
 	public static <T extends Comparable<T>> ArrayList<SortEvent<T>> mergeSort(ArrayList<T> lst) {
 		ArrayList<SortEvent<T>> sortEventList = new ArrayList<SortEvent<T>>();
 		mergeSortHelper(lst, 0, lst.size(), sortEventList);
 		return sortEventList;
 	}
 
-
+/**
+ * This method performs bubble sort on an array
+ * @param lst
+ * @return a SortEvent object
+ */
 	public static <T extends Comparable <T>> ArrayList<SortEvent<T>> bubbleSort(ArrayList<T> lst) {
 		ArrayList<SortEvent<T>> sortEventList = new ArrayList<SortEvent<T>>();
 		for(int i = 0; i < lst.size(); i++ ) {
@@ -138,7 +177,14 @@ public class Sorts {
 		return sortEventList;
 	} 
 
-	
+	/**
+	 * This method performs the basic sorting activity of quick sort
+	 * @param lst
+	 * @param lo
+	 * @param hi
+	 * @param sortEventList
+	 * @return
+	 */
 	public static <T extends Comparable<T>> int partition(ArrayList<T> lst, int lo, int hi, ArrayList<SortEvent<T>> sortEventList)
 	{
 		T pivot = lst.get(hi); 
@@ -161,6 +207,13 @@ public class Sorts {
 		return loptr+1;
 	}
 	
+	/**
+	 * This method recursively sorts the entire array using quick sort
+	 * @param lst
+	 * @param lo
+	 * @param hi
+	 * @param sortEventList
+	 */
 	public static <T extends Comparable<T>> void quickSortHelper(ArrayList<T> lst, int lo, int hi, ArrayList<SortEvent<T>> sortEventList)
 	{
 		if (lo < hi)
@@ -170,13 +223,22 @@ public class Sorts {
 			quickSortHelper(lst, pi+1, hi, sortEventList);
 		}
 	}
-
+/**
+ * This method performs quick sort on an array
+ * @param lst
+ * @return a SortEvent object
+ */
 	public static <T extends Comparable<T>> ArrayList<SortEvent<T>> quickSort(ArrayList<T> lst) {
 		ArrayList<SortEvent<T>> sortEventList = new ArrayList<SortEvent<T>>();
 		quickSortHelper(lst, 0, lst.size() - 1, sortEventList);
 		return sortEventList;
 	}
 	
+	/**
+	 * This method apply events to the list in-order
+	 * @param l
+	 * @param events
+	 */
 	public static <T extends Comparable<T>> void eventSort(ArrayList<T> l, ArrayList<SortEvent<T>> events){
 		for(int i = 0; i < events.size(); i++) {
 			events.get(i).apply(l);
