@@ -1,0 +1,154 @@
+;; Lab: Propositional Logic
+;; CSC 261 
+;;
+;; File
+;;   problems.scm
+;;
+;; Summary
+;;   A series of Knowledge Bases and their entailment proofs
+;;
+;; Provides
+;;   Nothing; prints output
+
+;; NOTE: THESE LOGICAL KBs ASSUME A DEFINITION OF LYING SUCH THAT IF
+;;       [a] STATES [p] AND [a] LIES, [not p] HOLDS
+
+(load "logic.scm")
+(require "weinman-enumeration.scm") 
+
+(define unicorn-kb (list 'and (list '=>
+                                    'Myth
+                                    (list 'not 'Mort))
+                         (list 'and (list '=>
+                                          (list 'not 'Myth)
+                                          (list 'or 'Mort 'Mammal))
+                               (list 'and (list '=>
+                                                (list 'or
+                                                      (list 'not 'Mort)
+                                                      'Mammal)
+                                                'Horn)
+                                     (list '=> 'Horn 'Magic)))))
+
+;; Unicorns!
+(display "There are no facts in unicorn-kb;\n")
+(display "Apparently none of the queries are necessarily true.\n")
+(display "Is the unicorn mythical? ")
+(display (tt-entails? unicorn-kb
+                      'Myth))
+(display "\nIs the unicorn magic? ")
+(display (tt-entails? unicorn-kb
+                      'Magic))
+(display "\nIs the unicorn horned? ")
+(display (tt-entails? unicorn-kb
+                      'Horn))
+
+
+;; Portia's Caskets
+;; Part 1: the statements on the caskets
+(define caskets (list 'and (list '<=> 'Gtrue 'Gold)
+                      (list 'and (list '<=> 'Strue
+                                       (list 'not 'Silver))
+                            (list '<=> 'Ltrue
+                                  (list 'not 'Gold)))))
+;; Part 2: At most one is true
+(define one-true (list 'or (list 'and 'Gtrue
+                                 (list 'not (list 'or
+                                                  'Strue
+                                                  'Ltrue)))
+                       (list 'or (list 'and 'Strue
+                                       (list 'not (list 'or
+                                                        'Gtrue
+                                                        'Ltrue)))
+                             (list 'or
+                                   (list 'and 'Ltrue
+                                         (list 'not (list 'or
+                                                          'Gtrue
+                                                          'Strue)))
+                                   (list 'not (list 'or 'Gtrue
+                                                    (list 'or 'Strue
+                                                          'Ltrue)))))))
+;; Part 3: Synthesized KB along with a rule saying that if the portrait is
+;; not in Gold or Silver it must be in Lead (the other two cases are
+;; covered in caskets)
+(define portia-kb (list 'and caskets                      
+                        (list 'and one-true
+                             (list '=> (list 'not (list 'or
+                                                         'Gold
+                                                        'Silver))
+                                  'Lead))))
+(display "\n\nPortia's Caskets:\nIs the portrait in Gold? ")
+(display (tt-entails? portia-kb 'Gold))
+(display "\nIs the portrait in Silver? ")
+(display (tt-entails? portia-kb 'Silver))
+(display "\nIs the portrait in Lead? ")
+(display (tt-entails? portia-kb 'Lead))
+
+
+
+;; Knights, Knaves, and Werewolves
+;; Part 1: At most one is a knight
+(define one-knight (list 'or (list 'and 'A-Knight
+                                 (list 'not (list 'or
+                                                  'B-Knight
+                                                  'C-Knight)))
+                       (list 'or (list 'and 'B-Knight
+                                       (list 'not (list 'or
+                                                        'A-Knight
+                                                        'C-Knight)))
+                             (list 'or
+                                   (list 'and 'C-Knight
+                                         (list 'not (list 'or
+                                                          'A-Knight
+                                                          'B-Knight)))
+                                   (list 'not (list 'or 'A-Knight
+                                                    (list 'or 'B-Knight
+                                                          'C-Knight)))))))
+
+;; Part 2: The Testimony of A, B, and C
+(define testimony
+  (list 'and (list '<=> 'A-Knight 'A-Wolf)
+        (list 'and (list '<=> 'B-Knight 'B-Wolf)
+              (list '<=> 'C-Knight one-knight))))
+
+;; Part 3: Exactly one is a wolf
+(define one-wolf (list 'or (list 'and 'A-Wolf
+                                 (list 'not (list 'or
+                                                  'B-Wolf
+                                                  'C-Wolf)))
+                       (list 'or (list 'and 'B-Wolf
+                                       (list 'not (list 'or
+                                                        'A-Wolf
+                                                        'C-Wolf)))
+                           
+                                   (list 'and 'C-Wolf
+                                         (list 'not (list 'or
+                                                          'A-Wolf
+                                                          'B-Wolf))))))
+                                   
+;; Part 4: liars-kb
+(define liars-kb
+  (list 'and testimony one-wolf))
+
+;; NOTE: Since people can be either Knights or Knaves,
+;;       and either Werewolves or Humans, it is
+;;       superfluous to prove one given the negation
+;;       of the other in both cases.
+(display "\n\nKnights, Knaves, and Werewolves:")
+(display"\nIs A a Wolf? ")
+(display (tt-entails? liars-kb 'A-Wolf))
+(display "\nIs B a Wolf? ")
+(display (tt-entails? liars-kb 'B-Wolf))
+(display "\nIs C a Wolf? ")
+(display (tt-entails? liars-kb 'C-Wolf))
+
+(display "\nIs A a Knight? ")
+(display (tt-entails? liars-kb 'A-Knight))
+(display "\nIs B a Knight? ")
+(display (tt-entails? liars-kb 'B-Knight))
+(display "\nIs C a Knight? ")
+(display (tt-entails? liars-kb 'C-Knight))
+
+
+
+
+

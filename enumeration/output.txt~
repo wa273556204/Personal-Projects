@@ -1,0 +1,36 @@
+Script started on Wed 28 Feb 2018 05:00:57 PM CST
+lishuyan@harary:enumeration$  export PS1="$ "
+$ mzscheme -l lang/plt-pretty-big-text.ss -f problems.scm
+Unicorns!
+Is the unicorn mythical? #f
+Is the unicorn magical? #f
+Is the unicorn horned? #f
+Based on the results, we know that none of those queries areabsolutely true.
+
+Portia’s Caskets
+Is the portrait in the gold casket?#f
+Is the portrait in the silver casket?#t
+Is the portrait in the lead casket?#f
+Is the portrait not in the gold casket? #t
+Is the portrait not in the silver casket? #f
+Is the portrait not in the lead casket? #t
+Based on the results, we know that the suitor should choosethe silver casket and shoud not choose the gold and the lead one
+
+Knights, Knaves, and Werewolves 
+Is A a Knight? #f
+Is B a Knight? #f
+Is C a Knight? #t
+Is A a Knave? #t
+Is B a Knave? #t
+Is C a Knave? #f
+Is A a werewolf? #f
+Is B a werewolf? #f
+Is C a werewolf? #t
+Is A a human? #t
+Is B a human? #t
+Is C a human? #f
+Based on the results, we know that C is a werewolf and both A
+and B are humans; C is a knight and both A and B are knaves$ exit
+exit
+
+Script done on Wed 28 Feb 2018 05:01:17 PM CST

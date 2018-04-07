@@ -1,0 +1,16 @@
+References:
+  Written/online sources used:
+   Russel and Norvig: Artificial Intelligence a Modern Approach
+   Lab 7: Probability
+  http://www.cs.grinnell.edu/~weinman/courses/CSC261/2018S/assignments/probability.pdf
+   Lab: Probability
+   http://www.cs.grinnell.edu/~weinman/courses/CSC261/2018S/labs/probability.html
+   Jaynes: Probability Theory Chapter 4
+   https://pioneerweb.grinnell.edu/bbcswebdav/pid-478179-dt-content-rid-2270173_2/courses/S18-CSC-261-01-02/jaynes94.04.elementary%281%29.pdf
+  Help obtained:
+    Jerod Weinman 
+Academic honesty certification:
+  Our initials below confirm that the above list of sources
+  is complete AND that I/we have not talked to anyone else
+  (e.g., CSC 261 students) about the solution to this problem
+  Initials:  SER, SYL

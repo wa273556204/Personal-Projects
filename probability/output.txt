@@ -1,0 +1,184 @@
+Script started on Wed 14 Mar 2018 08:32:52 PM CDT
+postel$ script transcript[C[C[C[C[C[C[C[Cls[Kcd probability/[6PCSC261ls[Kexit     mzscheme -l lang/plt-pretty-big-text.ss -f analysis.scm 
+Training on letter 1, 4, and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: -542.4094266680788
+
+Training on letter 1, 4, and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -822.963294981231
+
+Training on letter 1, 4, and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: -803.7611655252749
+
+Training on letter 1, 4, and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: -872.6695437632225
+
+Training on letter 1, 9, and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: -1195.0854156880246
+
+Training on letter 1, 9, and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -1569.1002562941583
+
+Training on letter 1, 9, and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: -1164.1631935756136
+
+Training on letter 1, 9, and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: -1752.307664484964
+
+Training on letter 1, 18, and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: -1516.9279752914929
+
+Training on letter 1, 18, and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -2125.808168151606
+
+Training on letter 1, 18, and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: -1388.7877380090356
+
+Training on letter 1, 18, and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: -1878.5114414991199
+
+Training on letter 8, 4, and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: 384.9112732843622
+
+Training on letter 8, 4, and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: 717.0081906465009
+
+Training on letter 8, 4, and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: 361.186003614788
+
+Training on letter 8, 4, and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: 515.8727997746871
+
+Training on letter 8, 9, and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: -35.848455234719836
+
+Training on letter 8, 9, and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -29.128770666426362
+
+Training on letter 8, 9, and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: -336.9610201106326
+
+Training on letter 8, 9, and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: -363.76532094705453
+
+Training on letter 8, 18, and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: -292.84131716970535
+
+Training on letter 8, 18, and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -585.8366825238738
+
+Training on letter 8, 18, and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: -561.5855645440547
+
+Training on letter 8, 18, and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: -713.564272359057
+
+Training on letter 16, 4, and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: 860.0157334816004
+
+Training on letter 16, 4, and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: 1245.9358968333618
+
+Training on letter 16, 4, and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: 1109.943122633074
+
+Training on letter 16, 4, and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: 1360.0883827156588
+
+Training on letter 16, 9, and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: 439.2560049625183
+
+Training on letter 16, 9, and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: 593.259907813416
+
+Training on letter 16, 9, and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: 358.3400301781626
+
+Training on letter 16, 9, and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: 480.45026199391714
+
+Training on letter 16, 18, and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: 182.2631430275328
+
+Training on letter 8, 18, and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: 271.4173482099477
+
+Training on letter 8, 18, and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: 133.71548574474048
+
+Training on letter 8, 18, and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: 35.19284665922896
+
+Training on letter 1,8,4,9,and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -63.37842364376456
+
+Training on letter 1,8,4,9,and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: -358.5059001681907
+
+Training on letter 1,8,4,18,and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -301.7836193425603
+
+Training on letter 1,8,4,18,and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: -472.5577729637132
+
+Training on letter 1,8,9,18,and get the evidence of letter 16
+Jaynes evidence for the typiest is typiest 1: -412.97741496754725
+
+Training on letter 1,8,9,18,and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: -485.24223871860613
+
+Training on letter 1,16,4,9,and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: 215.49757952399887
+
+Training on letter 1,16,4,9,and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: 1.2076511389989264
+
+Training on letter 1,16,4,18,and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: 96.13609704426494
+
+Training on letter 1,16,4,18,and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: -185.99329175130492
+
+Training on letter 1,16,9,18,and get the evidence of letter 8
+Jaynes evidence for the typiest is typiest 1: -25.522489537901265
+
+Training on letter 1,16,9,18,and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: -204.7125193321341
+Training on letter 8,16,4,9,and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: 296.76878454495807
+
+Training on letter 8,16,4,9,and get the evidence of letter 18
+Jaynes evidence for the typiest is typiest 1: 190.93328384222787
+
+Training on letter 8,16,4,18,and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: 175.40747340110784
+
+Training on letter 8,16,4,18,and get the evidence of letter 9
+Jaynes evidence for the typiest is typiest 1: -7.1152547125348065
+
+Training on letter 8,16,9,18,and get the evidence of letter 1
+Jaynes evidence for the typiest is typiest 1: 118.01110922941518
+
+Training on letter 8,16,9,18,and get the evidence of letter 4
+Jaynes evidence for the typiest is typiest 1: -60.58256702725657
+
+Training on all labeled letters,and get the evidence of letter 3
+Jaynes evidence for the typiest is typiest 1: -185.14701233847404
+
+Training on all labeled letters,and get the evidence of letter 7
+Jaynes evidence for the typiest is typiest 1: 211.00767272347866
+
+Training on all labeled letters,and get the evidence of letter 10
+Jaynes evidence for the typiest is typiest 1: -28.69142694927973
+
+Training on all labeled letters,and get the evidence of letter 11
+Jaynes evidence for the typiest is typiest 1: 73.30540519588624
+
+Training on all labeled letters,and get the evidence of letter 15
+Jaynes evidence for the typiest is typiest 1: -105.61026936060784
+
+Training on all labeled letters,and get the evidence of letter 22
+Jaynes evidence for the typiest is typiest 1: 253.50923692424203
+postel$ exit
+exit
+
+Script done on Wed 14 Mar 2018 08:32:58 PM CDT
